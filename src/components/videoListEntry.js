@@ -1,7 +1,8 @@
 angular.module('video-player')
 .component('videoListEntry', {
   bindings:{
-    video: '<'
+    video: '<',
+    select: '<'
   },
   controller: function() {
     // this.video = window.exampleVideoData[0]

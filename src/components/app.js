@@ -1,17 +1,21 @@
-angular.module('video-player',[])
+angular.module('video-player', [])
 
-// .factory("Videos", )
+  // .factory("Videos", )
 
-.component('app', {
-    controller: function () {
-      this.selectVideo = function (newVideo) {
-       this.currentVideo = newVideo;
-      };
-      this.searchResults = function () {}
-      this.currentVideo = window.exampleVideoData[0];
+  .component('app', {
+    controller: function ($sce) {
+      this.selectVideo = (newVideo) => {
+        this.currentVideo = newVideo;
+        this.videoUrl = 'https://www.youtube.com/embed/' + this.currentVideo.id.videoId
+        this.currentVideo.embedUrl = $sce.trustAsResourceUrl(this.videoUrl)
+    };
+      this.searchResults = function () { }
+      this.currentVideo = window.exampleVideoData[0];                                       //defaulting
+      this.videoUrl = 'https://www.youtube.com/embed/' + this.currentVideo.id.videoId        //defaulting
+      this.currentVideo.embedUrl = $sce.trustAsResourceUrl(this.videoUrl)                    //defaulting
       this.videos = window.exampleVideoData;
     },
 
-    templateUrl: 'src/templates/app.html' 
- 
+    templateUrl: 'src/templates/app.html'
+
   });

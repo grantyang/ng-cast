@@ -1,17 +1,14 @@
 angular.module('video-player')
 
 .component('videoPlayer', {
-  binding: {
+  bindings: {
     currentVideo: "<"
   },
-  controller: function($sce){
-    this.currentVideo = window.exampleVideoData[0];
-    console.log(this.currentVideo)
-    this.selectVideo = function(newVideo) {
-      this.currentVideo = newVideo;
-   }
-    this.videoUrl = 'https://www.youtube.com/embed/' + this.currentVideo.id.videoId
-    this.embedUrl = $sce.trustAsResourceUrl(this.videoUrl)
+  controller: function(){
+    // console.log(this)
+    console.log('current video is:', this.currentVideo)
+    // this.currentVideo = window.exampleVideoData[0]; 
+
   },
   templateUrl: 'src/templates/videoPlayer.html'
 });
