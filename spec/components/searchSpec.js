@@ -31,7 +31,7 @@ describe('search', function() {
     expect(element.isolateScope().$ctrl.result).to.be.a('function');
   });
 
-  it('should not use & function binding', function() {
+  it('should not use & (two-way) function binding', function() {
     expect(element.isolateScope().$ctrl.result).to.equal(resultSpy);
   });
 

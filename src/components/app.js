@@ -1,5 +1,17 @@
-angular.module('video-player')
+angular.module('video-player',[])
+
+// .factory("Videos", )
 
 .component('app', {
-  // TODO
-});
+    controller: function () {
+      this.selectVideo = function (newVideo) {
+       this.currentVideo = newVideo;
+      };
+      this.searchResults = function () {}
+      this.currentVideo = window.exampleVideoData[0];
+      this.videos = window.exampleVideoData;
+    },
+
+    templateUrl: 'src/templates/app.html' 
+ 
+  });
